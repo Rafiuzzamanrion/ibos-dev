@@ -122,6 +122,16 @@ export function QuestionModal({
 
   function handleSaveAndMore(data: QuestionFormData) {
     onSaveAndAddMore(buildFormData(data));
+    form.reset({
+      title: "",
+      type: "radio",
+      score: 1,
+      options: [
+        { text: "", isCorrect: false },
+        { text: "", isCorrect: false },
+        { text: "", isCorrect: false },
+      ],
+    });
   }
 
   return (
