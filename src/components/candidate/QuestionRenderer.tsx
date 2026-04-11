@@ -59,7 +59,7 @@ export function QuestionRenderer({
   );
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm">
+    <div>
       <div className="mb-6 flex items-baseline gap-1">
         <span className="text-base font-semibold text-foreground">
           Q{questionNumber}.

@@ -266,66 +266,68 @@ export default function ExamPage() {
               </CardContent>
             </Card>
 
-            {currentQuestion && (
-              <QuestionRenderer
-                question={currentQuestion}
-                questionNumber={currentQuestionIndex + 1}
-                totalQuestions={questions.length}
-                currentAnswer={answers[currentQuestion._id]}
-                onAnswer={handleAnswer}
-              />
-            )}
-
-            <div className="mt-6 flex items-center justify-between">
-              <Button
-                variant="outline"
-                onClick={handleSkipQuestion}
-                disabled={currentQuestionIndex === questions.length - 1}
-                className="border-gray-300"
-                id="skip-question"
-              >
-                Skip this Question
-              </Button>
-
-              {currentQuestionIndex < questions.length - 1 ? (
-                <Button
-                  onClick={handleNextQuestion}
-                  className="bg-primary text-white hover:bg-primary/90"
-                  id="save-and-continue-exam"
-                >
-                  Save & Continue
-                </Button>
-              ) : (
-                <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button
-                      disabled={submitting}
-                      className="bg-primary text-white hover:bg-primary/90"
-                      id="submit-exam"
-                    >
-                      Submit
-                    </Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>Submit Exam</AlertDialogTitle>
-                      <AlertDialogDescription>
-                        Are you sure you want to submit your exam? This action
-                        cannot be undone.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction
-                        onClick={handleManualSubmit}
-                        className="bg-primary text-white hover:bg-primary/90"
-                      >
-                        Confirm Submit
-                      </AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
+            <div className="rounded-xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm">
+              {currentQuestion && (
+                <QuestionRenderer
+                  question={currentQuestion}
+                  questionNumber={currentQuestionIndex + 1}
+                  totalQuestions={questions.length}
+                  currentAnswer={answers[currentQuestion._id]}
+                  onAnswer={handleAnswer}
+                />
               )}
+
+              <div className="mt-8 flex items-center justify-between">
+                <Button
+                  variant="outline"
+                  onClick={handleSkipQuestion}
+                  disabled={currentQuestionIndex === questions.length - 1}
+                  className="border-gray-300"
+                  id="skip-question"
+                >
+                  Skip this Question
+                </Button>
+
+                {currentQuestionIndex < questions.length - 1 ? (
+                  <Button
+                    onClick={handleNextQuestion}
+                    className="bg-primary text-white hover:bg-primary/90"
+                    id="save-and-continue-exam"
+                  >
+                    Save & Continue
+                  </Button>
+                ) : (
+                  <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                      <Button
+                        disabled={submitting}
+                        className="bg-primary text-white hover:bg-primary/90"
+                        id="submit-exam"
+                      >
+                        Submit
+                      </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>Submit Exam</AlertDialogTitle>
+                        <AlertDialogDescription>
+                          Are you sure you want to submit your exam? This action
+                          cannot be undone.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction
+                          onClick={handleManualSubmit}
+                          className="bg-primary text-white hover:bg-primary/90"
+                        >
+                          Confirm Submit
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+                )}
+              </div>
             </div>
           </div>
         </main>
