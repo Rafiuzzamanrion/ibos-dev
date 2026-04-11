@@ -17,6 +17,9 @@ const fontMono = Geist_Mono({
 export const metadata = {
   title: "Online Assessment Platform | Akij Resource",
   description: "Take and manage online assessments with behavioral tracking, timed exams, and comprehensive result analysis.",
+  icons: {
+    icon: "/Resource Logo 1 (1).png",
+  },
 }
 
 export default function RootLayout({
