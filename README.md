@@ -6,9 +6,6 @@ A full-stack Online Assessment Platform built with Next.js (App Router), MongoDB
 
 > [https://ibos-dev.vercel.app/](https://ibos-dev.vercel.app/)
 
-## Repository
-
-> [https://github.com/Rafiuzzamanrion/ibos-dev](https://github.com/Rafiuzzamanrion/ibos-dev)
 
 ## Video Walkthrough
 
