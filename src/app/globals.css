@@ -120,12 +120,19 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     }
   body {
     @apply bg-background text-foreground;
     }
   html {
     @apply font-sans;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #6633FF;
+    outline-offset: 2px;
   }
 
   ::-webkit-scrollbar {

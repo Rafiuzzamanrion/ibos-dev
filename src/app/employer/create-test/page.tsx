@@ -143,7 +143,7 @@ export default function CreateTestPage() {
                   <h2 className="mb-3 text-lg font-bold">Manage Online Test</h2>
                   <CreateTestStepper
                     currentStep={currentStep}
-                    steps={["Basic Info", "Questions"]}
+                    steps={["Basic Info", "Questions Sets"]}
                   />
                 </div>
                 <Button

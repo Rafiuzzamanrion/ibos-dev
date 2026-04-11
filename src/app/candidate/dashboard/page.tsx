@@ -83,15 +83,39 @@ export default function CandidateDashboardPage() {
                 description="Currently, there are no online tests available. Please check back later for updates."
               />
             ) : (
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                {filteredExams.map((exam) => (
-                  <CandidateExamCard
-                    key={exam._id}
-                    exam={exam}
-                    onStart={handleStartExam}
-                  />
-                ))}
-              </div>
+              <>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  {filteredExams.map((exam) => (
+                    <CandidateExamCard
+                      key={exam._id}
+                      exam={exam}
+                      onStart={handleStartExam}
+                    />
+                  ))}
+                </div>
+
+                <div className="mt-8 flex items-center justify-between border-t border-gray-200 pt-6">
+                  <div className="flex items-center gap-2">
+                    <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-400 hover:bg-gray-50">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white font-medium">
+                      1
+                    </button>
+                    <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-400 hover:bg-gray-50">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium text-gray-500">
+                      Online Test Per Page
+                    </span>
+                    <div className="flex items-center justify-between rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium w-16">
+                      8 <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" /></svg>
+                    </div>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </main>

@@ -107,14 +107,6 @@ export default function EmployerDashboardPage() {
                 {/* Pagination */}
                 <div className="mt-8 flex items-center justify-between border-t border-gray-200 pt-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium text-gray-500">
-                      Online Test Per Page
-                    </span>
-                    <div className="flex items-center justify-between rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium w-16">
-                      8 <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
                     <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-400 hover:bg-gray-50">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                     </button>
@@ -124,6 +116,14 @@ export default function EmployerDashboardPage() {
                     <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-400 hover:bg-gray-50">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                     </button>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium text-gray-500">
+                      Online Test Per Page
+                    </span>
+                    <div className="flex items-center justify-between rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium w-16">
+                      8 <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" /></svg>
+                    </div>
                   </div>
                 </div>
               </>

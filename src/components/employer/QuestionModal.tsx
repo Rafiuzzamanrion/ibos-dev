@@ -154,7 +154,7 @@ export function QuestionModal({
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="radio">MCQ (Radio)</SelectItem>
+                  <SelectItem value="radio">Radio</SelectItem>
                   <SelectItem value="checkbox">Checkbox</SelectItem>
                   <SelectItem value="text">Text</SelectItem>
                 </SelectContent>
