@@ -4,11 +4,15 @@ A full-stack Online Assessment Platform built with Next.js (App Router), MongoDB
 
 ## Live Demo
 
-> Live demo link will be added after deployment.
+> [https://ibos-dev.vercel.app/](https://ibos-dev.vercel.app/)
+
+## Repository
+
+> [https://github.com/Rafiuzzamanrion/ibos-dev](https://github.com/Rafiuzzamanrion/ibos-dev)
 
 ## Video Walkthrough
 
-> Video demonstration link will be added.
+> [https://drive.google.com/file/d/1GuWHBUYxTTEtVH660usdNB2Imx6Z1JdH/view?usp=sharing](https://drive.google.com/file/d/1GuWHBUYxTTEtVH660usdNB2Imx6Z1JdH/view?usp=sharing)
 
 ## Tech Stack
 
@@ -78,17 +82,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-### Seed Data
+### Demo Credentials
 
-To create test users, you can use a MongoDB client or create a seed script:
+You can use the following credentials to test the application:
 
-```javascript
-// Employer
-{ name: "Arif Hossain", email: "employer@test.com", password: "<bcrypt-hashed>", role: "employer" }
+**Employer / Admin**
+- Email: `employer@test.com`
+- Password: `password123`
 
-// Candidate
-{ name: "Jhon Smith", email: "candidate@test.com", password: "<bcrypt-hashed>", role: "candidate" }
-```
+**Candidate**
+- Email: `candidate@test.com`
+- Password: `password123`
 
 ## Project Structure
 
