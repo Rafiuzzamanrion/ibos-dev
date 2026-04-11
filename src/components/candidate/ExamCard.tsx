@@ -9,9 +9,10 @@ import { Clock, FileText, XCircle } from "lucide-react";
 interface CandidateExamCardProps {
   exam: IExam;
   onStart: (examId: string) => void;
+  hasSubmitted?: boolean;
 }
 
-export function CandidateExamCard({ exam, onStart }: CandidateExamCardProps) {
+export function CandidateExamCard({ exam, onStart, hasSubmitted = false }: CandidateExamCardProps) {
   const now = new Date();
   const startTime = new Date(exam.startTime);
   const endTime = new Date(exam.endTime);
@@ -53,14 +54,18 @@ export function CandidateExamCard({ exam, onStart }: CandidateExamCardProps) {
         </div>
 
         <Button
-          variant="outline"
+          variant={hasSubmitted ? "secondary" : "outline"}
           size="sm"
           onClick={() => onStart(exam._id)}
-          disabled={!isWithinWindow}
-          className="border-primary text-primary hover:bg-[#EDE8FF] disabled:opacity-50 rounded-full px-5 h-9"
+          disabled={!isWithinWindow || hasSubmitted}
+          className={`rounded-full px-5 h-9 ${
+            hasSubmitted
+              ? "opacity-50 cursor-not-allowed"
+              : "border-primary text-primary hover:bg-[#EDE8FF] disabled:opacity-50"
+          }`}
           id={`start-exam-${exam._id}`}
         >
-          Start
+          {hasSubmitted ? "Submitted" : "Start"}
         </Button>
       </CardContent>
     </Card>

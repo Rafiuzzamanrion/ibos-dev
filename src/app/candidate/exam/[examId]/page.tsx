@@ -72,6 +72,10 @@ export default function ExamPage() {
     if (!isSubmitted) {
       setShowTimeout(true);
       await submitAnswers(examId, answers, true);
+      try {
+        const prev = JSON.parse(localStorage.getItem("submitted_exams") || "[]");
+        if (!prev.includes(examId)) localStorage.setItem("submitted_exams", JSON.stringify([...prev, examId]));
+      } catch (err) {}
       if (document.fullscreenElement) {
         document.exitFullscreen().catch(() => {});
       }
@@ -132,7 +136,12 @@ export default function ExamPage() {
   useEffect(() => {
     function handleOnline() {
       if (isExpired && !isSubmitted) {
-        submitAnswers(examId, answers, true);
+        submitAnswers(examId, answers, true).then(() => {
+          try {
+            const prev = JSON.parse(localStorage.getItem("submitted_exams") || "[]");
+            if (!prev.includes(examId)) localStorage.setItem("submitted_exams", JSON.stringify([...prev, examId]));
+          } catch (err) {}
+        });
       }
     }
     window.addEventListener("online", handleOnline);
@@ -160,6 +169,10 @@ export default function ExamPage() {
 
   const handleManualSubmit = useCallback(async () => {
     await submitAnswers(examId, answers, false);
+    try {
+      const prev = JSON.parse(localStorage.getItem("submitted_exams") || "[]");
+      if (!prev.includes(examId)) localStorage.setItem("submitted_exams", JSON.stringify([...prev, examId]));
+    } catch (err) {}
     setShowCompleted(true);
     if (document.fullscreenElement) {
       document.exitFullscreen().catch(() => {});
@@ -192,7 +205,13 @@ export default function ExamPage() {
         <main className="flex flex-1 items-center justify-center bg-[#f8f8fc]">
           <Card className="mx-4 w-full max-w-2xl">
             <CardContent className="flex flex-col items-center py-16">
-              <CheckCircle className="mb-4 h-16 w-16 text-blue-500" />
+              <Image
+                src="/successOFSubmit.png"
+                alt="Test Completed"
+                width={80}
+                height={80}
+                className="mb-6 object-contain"
+              />
               <h2 className="mb-3 text-xl font-bold">Test Completed</h2>
               <p className="mb-6 max-w-md text-center text-sm text-muted-foreground">
                 Congratulations! {session?.user?.name}, You have completed your

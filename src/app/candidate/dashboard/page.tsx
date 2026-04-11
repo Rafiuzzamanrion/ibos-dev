@@ -23,6 +23,7 @@ export default function CandidateDashboardPage() {
   const dispatch = useAppDispatch();
   const { exams, loading } = useAppSelector((state) => state.candidate);
   const [searchQuery, setSearchQuery] = useState("");
+  const [submittedExams, setSubmittedExams] = useState<string[]>([]);
 
   const fetchPublishedExams = useCallback(async () => {
     dispatch(setLoading(true));
@@ -37,6 +38,15 @@ export default function CandidateDashboardPage() {
   useEffect(() => {
     fetchPublishedExams();
   }, [fetchPublishedExams]);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("submitted_exams");
+      if (stored) {
+        setSubmittedExams(JSON.parse(stored));
+      }
+    } catch (err) {}
+  }, []);
 
   const handleStartExam = useCallback(
     (examId: string) => {
@@ -90,16 +100,17 @@ export default function CandidateDashboardPage() {
                       key={exam._id}
                       exam={exam}
                       onStart={handleStartExam}
+                      hasSubmitted={submittedExams.includes(exam._id)}
                     />
                   ))}
                 </div>
 
-                <div className="mt-8 flex items-center justify-between border-t border-gray-200 pt-6">
+                <div className="mt-8 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-400 hover:bg-gray-50">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                     </button>
-                    <button className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white font-medium">
+                    <button className="flex h-8 w-8 items-center justify-center bg-transparent text-sm font-semibold text-foreground">
                       1
                     </button>
                     <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-400 hover:bg-gray-50">
