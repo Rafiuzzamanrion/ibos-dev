@@ -45,7 +45,7 @@ export function StepQuestionSets({
           </div>
 
           <div
-            className="mb-4 rounded border border-primary/30 bg-primary/5 px-3 py-2 text-sm font-medium prose prose-sm max-w-none"
+            className="mb-4 text-sm font-bold text-foreground prose prose-sm max-w-none"
             dangerouslySetInnerHTML={{ __html: question.title }}
           />
 
@@ -54,21 +54,23 @@ export function StepQuestionSets({
               {question.options.map((option, optIndex) => (
                 <div
                   key={optIndex}
-                  className={`flex items-center justify-between rounded px-3 py-2 text-sm ${
+                  className={`flex items-center justify-between rounded px-4 py-3 text-sm ${
                     option.isCorrect
-                      ? "bg-green-50 text-green-800"
+                      ? "bg-gray-100 text-foreground font-medium"
                       : "text-foreground"
                   }`}
                 >
-                  <span className="flex items-center gap-1">
-                    {String.fromCharCode(65 + optIndex)}.
-                    <span
-                      className="prose prose-sm max-w-none inline"
+                  <div className="flex items-start gap-2 flex-1 min-w-0">
+                    <span className="shrink-0 pt-[2px]">{String.fromCharCode(65 + optIndex)}.</span>
+                    <div
+                      className="prose prose-sm max-w-none flex-1 [&>p]:!m-0"
                       dangerouslySetInnerHTML={{ __html: option.text }}
                     />
-                  </span>
+                  </div>
                   {option.isCorrect && (
-                    <Check className="h-5 w-5 text-green-500" />
+                    <div className="ml-4 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#10b981] text-white">
+                      <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                    </div>
                   )}
                 </div>
               ))}

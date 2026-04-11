@@ -234,14 +234,16 @@ export function QuestionModal({
                     </button>
                   </div>
 
-                  <RichTextEditor
-                    value={form.watch(`options.${index}.text`) || ""}
-                    onChange={(value) =>
-                      form.setValue(`options.${index}.text`, value)
-                    }
-                    placeholder={`Option ${String.fromCharCode(65 + index)} text...`}
-                    minHeight="60px"
-                  />
+                  <div className="ml-[42px]">
+                    <RichTextEditor
+                      value={form.watch(`options.${index}.text`) || ""}
+                      onChange={(value) =>
+                        form.setValue(`options.${index}.text`, value)
+                      }
+                      placeholder={`Option ${String.fromCharCode(65 + index)} text...`}
+                      minHeight="60px"
+                    />
+                  </div>
                 </div>
               ))}
 
