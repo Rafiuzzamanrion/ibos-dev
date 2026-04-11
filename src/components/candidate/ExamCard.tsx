@@ -22,7 +22,7 @@ export function CandidateExamCard({ exam, onStart }: CandidateExamCardProps) {
     : 0;
 
   return (
-    <Card className="border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+    <Card>
       <CardContent className="p-6">
         <h3 className="mb-4 text-base font-semibold text-foreground">
           {exam.title}

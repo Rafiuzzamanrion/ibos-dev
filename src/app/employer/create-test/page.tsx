@@ -137,7 +137,7 @@ export default function CreateTestPage() {
 
         <main className="flex-1 bg-[#f8f8fc] px-4 py-8 md:px-8">
           <div className="mx-auto max-w-4xl">
-            <Card className="mb-6 border-gray-200 shadow-sm">
+            <Card className="mb-6">
               <CardContent className="flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">
                 <div>
                   <h2 className="mb-3 text-lg font-bold">Manage Online Test</h2>
@@ -156,7 +156,7 @@ export default function CreateTestPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-gray-200 shadow-sm">
+            <Card>
               <CardContent className="p-6 md:p-8">
                 {currentStep === 1 && <StepBasicInfo form={form} />}
 

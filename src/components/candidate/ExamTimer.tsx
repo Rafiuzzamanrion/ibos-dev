@@ -11,7 +11,7 @@ export function ExamTimer({ formattedTime }: ExamTimerProps) {
 
   return (
     <div
-      className={`flex items-center justify-center rounded-lg px-6 py-3 transition-colors duration-300 ${
+      className={`flex items-center justify-center rounded-full px-6 py-3 transition-colors duration-300 ${
         isWarning ? "bg-red-50" : "bg-gray-100"
       }`}
     >

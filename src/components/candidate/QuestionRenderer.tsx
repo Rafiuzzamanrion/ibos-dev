@@ -81,10 +81,10 @@ export function QuestionRenderer({
             return (
               <Label
                 key={index}
-                className={`flex cursor-pointer items-center rounded-lg border px-4 py-4 transition-colors ${
+                className={`flex cursor-pointer items-center border-b border-gray-200 px-4 py-4 transition-colors ${
                   isSelected
-                    ? "border-primary bg-[#EDE8FF]"
-                    : "border-gray-200 hover:bg-gray-50"
+                    ? "bg-[#EDE8FF]"
+                    : "hover:bg-gray-50"
                 }`}
                 htmlFor={`option-${question._id}-${index}`}
               >
@@ -110,10 +110,10 @@ export function QuestionRenderer({
             return (
               <div
                 key={index}
-                className={`flex items-center rounded-lg border px-4 py-4 transition-colors ${
+                className={`flex items-center border-b border-gray-200 px-4 py-4 transition-colors ${
                   isChecked
-                    ? "border-primary bg-[#EDE8FF]"
-                    : "border-gray-200 hover:bg-gray-50"
+                    ? "bg-[#EDE8FF]"
+                    : "hover:bg-gray-50"
                 }`}
               >
                 <Checkbox

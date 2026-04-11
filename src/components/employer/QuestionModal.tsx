@@ -126,7 +126,7 @@ export function QuestionModal({
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-h-[90vh] w-full max-w-2xl sm:max-w-3xl overflow-x-hidden overflow-y-auto p-6 [&>button.absolute]:hidden">
+      <DialogContent className="max-h-[90vh] w-full max-w-2xl sm:max-w-3xl overflow-x-hidden overflow-y-auto p-6" showCloseButton={false}>
         <DialogHeader className="mb-2 border-b pb-4">
           <div className="flex items-center justify-between">
             <DialogTitle className="flex items-center gap-3 text-lg font-semibold text-gray-900">
@@ -285,7 +285,7 @@ export function QuestionModal({
             <Button
               type="button"
               variant="outline"
-              className="w-36"
+              className="w-36 border-primary text-primary hover:bg-primary/5"
               onClick={form.handleSubmit(handleSave)}
               id="save-question-button"
             >

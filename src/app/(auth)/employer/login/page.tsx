@@ -71,7 +71,7 @@ export default function EmployerLoginPage() {
             Sign In
           </h2>
 
-          <Card className="border-gray-200 shadow-sm">
+          <Card>
             <CardContent className="p-6 md:p-8">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <div className="space-y-2">

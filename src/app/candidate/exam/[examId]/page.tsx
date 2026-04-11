@@ -190,7 +190,7 @@ export default function ExamPage() {
       <div className="flex min-h-screen flex-col">
         <AppHeader title="Akij Resource" />
         <main className="flex flex-1 items-center justify-center bg-[#f8f8fc]">
-          <Card className="mx-4 w-full max-w-2xl border-gray-200 shadow-sm">
+          <Card className="mx-4 w-full max-w-2xl">
             <CardContent className="flex flex-col items-center py-16">
               <CheckCircle className="mb-4 h-16 w-16 text-blue-500" />
               <h2 className="mb-3 text-xl font-bold">Test Completed</h2>
@@ -219,7 +219,7 @@ export default function ExamPage() {
         <AppHeader title="Akij Resource" />
         <main className="flex flex-1 items-center justify-center bg-[#f8f8fc]">
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-            <Card className="mx-4 w-full max-w-md border-gray-200 shadow-xl">
+            <Card className="mx-4 w-full max-w-md">
               <CardContent className="flex flex-col items-center py-12">
                 <Image
                   src="/Group (1).png"
@@ -257,7 +257,7 @@ export default function ExamPage() {
 
         <main className="flex-1 bg-[#f8f8fc] px-4 py-8 md:px-8">
           <div className="mx-auto max-w-3xl">
-            <Card className="mb-6 border-gray-200 shadow-sm">
+            <Card className="mb-6">
               <CardContent className="flex items-center justify-between p-4 md:p-6">
                 <h3 className="text-base font-semibold">
                   Question ({currentQuestionIndex + 1}/{questions.length})
@@ -266,7 +266,7 @@ export default function ExamPage() {
               </CardContent>
             </Card>
 
-            <div className="rounded-xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 md:p-8">
               {currentQuestion && (
                 <QuestionRenderer
                   question={currentQuestion}
