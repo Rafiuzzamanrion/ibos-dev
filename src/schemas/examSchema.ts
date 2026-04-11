@@ -20,22 +20,37 @@ export const questionFormSchema = z.object({
   options: z
     .array(
       z.object({
-        text: z.string().min(1, "Option text is required"),
+        text: z.string().optional(),
         isCorrect: z.boolean(),
       })
     )
     .optional(),
-}).refine(
-  (data) => {
-    if (data.type === "radio" || data.type === "checkbox") {
-      return data.options && data.options.some((opt) => opt.isCorrect);
+}).superRefine((data, ctx) => {
+  if (data.type === "radio" || data.type === "checkbox") {
+    let hasCorrect = false;
+    let allHaveText = true;
+    
+    data.options?.forEach((opt) => {
+      if (opt.isCorrect) hasCorrect = true;
+      if (!opt.text || opt.text.trim() === "") allHaveText = false;
+    });
+
+    if (!allHaveText) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "All option texts must be filled",
+        path: ["options"],
+      });
     }
-    return true;
-  },
-  {
-    message: "At least one correct answer must be selected",
-    path: ["options"],
+
+    if (!hasCorrect) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "At least one correct answer must be selected",
+        path: ["options"],
+      });
+    }
   }
-);
+});
 
 export type QuestionFormData = z.infer<typeof questionFormSchema>;

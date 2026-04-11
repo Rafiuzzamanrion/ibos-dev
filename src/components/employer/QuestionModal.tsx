@@ -156,9 +156,13 @@ export function QuestionModal({
               </div>
               <Select
                 value={questionType}
-                onValueChange={(value) =>
-                  form.setValue("type", value as "radio" | "checkbox" | "text")
-                }
+                onValueChange={(value) => {
+                  const val = value as "radio" | "checkbox" | "text";
+                  form.setValue("type", val, { shouldValidate: true });
+                  if (val === "text") {
+                    form.clearErrors("options");
+                  }
+                }}
               >
                 <SelectTrigger className="h-10 w-36 text-sm font-medium">
                   <SelectValue />
@@ -291,6 +295,14 @@ export function QuestionModal({
             </div>
           )}
 
+          {Object.keys(form.formState.errors).length > 0 && (
+            <div className="rounded-md border border-red-200 bg-red-50 p-4">
+              <p className="text-sm font-semibold text-red-600 mb-2">Form Errors (Debug):</p>
+              <pre className="text-xs text-red-700 whitespace-pre-wrap font-mono">
+                {JSON.stringify(form.formState.errors, null, 2)}
+              </pre>
+            </div>
+          )}
           <div className="flex items-center justify-center gap-4 pt-4">
             <Button
               type="button"
