@@ -68,7 +68,7 @@ npm install
 Create a `.env.local` file in the project root:
 
 ```
-MONGODB_URI=mongodb+srv://testDb:J86kZEHMkXFAYFWk@cluster0.1y1wm0f.mongodb.net/?appName=Cluster0
+MONGODB_URI=Collect the MongoDB connection string from submission form
 NEXTAUTH_SECRET=764cae866509f6e594412f7194f11456
 NEXTAUTH_URL=http://localhost:3000
 NEXT_PUBLIC_API_URL=/api
