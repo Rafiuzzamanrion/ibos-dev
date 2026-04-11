@@ -73,7 +73,7 @@ export function RichTextEditor({
         .custom-quill-toolbar {
           border: none !important;
           border-bottom: 1px solid hsl(var(--border)) !important;
-          background: transparent !important;
+          background-color: #F9FAFB !important;
           padding: 8px 12px !important;
           display: flex !important;
           align-items: center;
